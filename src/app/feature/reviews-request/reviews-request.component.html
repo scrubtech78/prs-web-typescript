@@ -1,0 +1,38 @@
+<app-menu></app-menu>
+<div>
+  <span class="component-title">[{{ title }}]</span>
+  <p *ngIf="!requests">Loading...</p>
+  <div *ngIf="requests">
+    <main class="single">
+        <h1>{{ title}}</h1>
+        <table *ngIf ="requests" class="table table-sm table-striped table-bordered table-condensed">
+            <thead>
+                <th>User</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>SubmittedDate</th>
+                <th>Action</th>
+             
+            </thead>
+            <tbody>
+                <tr *ngFor ="let request of requests">
+                    <td>{{ request.user.username}}</td>
+                    <td>{{ request.description}}</td>
+                    <td>{{ request.status}}</td>
+                    <td>{{ request.total}}</td>
+                    <td>{{ request.submittedDate}}</td>
+                    <td> <a routerLink="/request/approve-reject/{{request.id}}">
+                        <img
+                          width="20"
+                          height="20"
+                          src="assets/icons8-thumbs-up-48.png"
+                          title="Request Approve">
+                    </a>
+                    </td>
+                    
+            </tr>
+            </tbody>
+        </table>
+    </main>
+  </div>

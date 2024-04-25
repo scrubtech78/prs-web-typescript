@@ -1,0 +1,70 @@
+<app-menu></app-menu>
+
+<div>
+    <section class ="heading">
+        <span class = "page-title font-weight-bold font-italic"></span>
+        <a routerLink="/request/create">
+            <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
+         
+      </a>
+    </section>
+<h1>{{ title}}</h1>
+<table *ngIf ="request" class="table table-sm table-striped table-bordered table-condensed">
+    <thead>
+       <tr>
+        <th>Id</th>
+        <th>User</th>
+        <th>Description</th>
+        <th>Justification</th>
+        <th>DateNeeded</th>
+        <th>DeliveryMode</th>
+        <th>Status</th>
+        <th>Total</th>
+        <th>SubmittedDate</th>
+        <th>ReasonForRejection</th>
+    </tr>
+            
+        
+    </thead>
+    <tbody>
+        <tr *ngFor ="let request of request">
+            <td>{{ request.id}}</td>
+            <td>{{ request.user.username}}</td>
+            <td>{{ request.description}}</td>
+            <td>{{ request.justification}}</td>
+            <td>{{ request.dateNeeded}}</td>
+            <td>{{ request.deliveryMode}}</td>
+            <td>{{ request.status}}</td>
+            <td>{{ request.total}}</td>
+            <td>{{ request.submittedDate}}</td>
+            <td>{{ request.reasonForRejection}}</td>
+                <a routerLink="/request/detail/{{ request.id }}">
+                    <img
+                      width="20"
+                      height="20"
+                      src="assets/details.png"
+                      title="Request Details"
+                    />
+                  </a>
+                  <a routerLink="/request/edit/{{ request.id }}">
+                    <img
+                      width="20"
+                      height="20"
+                      src="assets/pencil-icon.png"
+                      title="Edit request"
+                    />
+                  </a>
+                  <a routerLink="/requestlines/{{request.id}}">
+                    <img
+                      width="20"
+                      height="20"
+                      src="assets/lines.png"
+                      title="Request-Lines"
+                      />
+                  </a>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+

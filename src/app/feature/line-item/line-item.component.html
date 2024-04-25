@@ -1,0 +1,59 @@
+<div>
+    <span class="component-title">[{{ title }}]</span>
+    <a routerLink="/lineitem/create/{requestId}">
+        <img width="20" height="20" src="assets/add-icon.png" title="Add New" /></a>
+    <p *ngIf="!lineitem">Loading...</p>
+    <div *ngIf="lineitem">
+      <main class="single">
+
+<table class="table table-sm  table-striped table-bordered table-condensed">
+
+  <tr>
+    <td>Vendor:</td>
+    <td>
+      <input [(ngModel)]="vendor.name" class="rounded" type="text" />
+    </td>
+  </tr>
+  
+    <tr>
+      <td>Product:</td>
+      <td>
+        <input [(ngModel)]="product.name" class="rounded" type="text" />
+      </td>
+    </tr>
+    <tr>
+      <td>Price:</td>
+      <td>
+        
+        <input [(ngModel)]="product.price" class="rounded" type="text" />
+      </td>
+    </tr>
+    <tr>
+      <td>Quantity:</td>
+      <td>
+        <input [(ngModel)]="lineitem.quantity" class="rounded" type="number" />
+      </td>
+    </tr>
+    <tr>
+    <td>Total:</td>
+    <td>
+      <input [(ngModel)]="request.total" class="rounded" type="text" />
+    </td>
+
+    <span> <button (click)="reviewRequest()" class="btn btn-sm btn-primary">Submit</button></span>
+  </tr>
+    
+     
+  </table>
+</main>
+<span >
+  
+ 
+</span>
+<p *ngIf="message">{{ message }}</p>
+</div>
+</div>
+
+
+
+

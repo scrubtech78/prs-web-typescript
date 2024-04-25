@@ -1,0 +1,11 @@
+<nav class="p-3 mb-2 bg-primary text-white">
+    <ul width="100%">
+        {{ title }}
+        <img src="assets/icons8-request-service-64.png">
+        <li *ngFor="let mi of menuItems" title="{{mi.tooltip}}">
+            <a routerLink="{{mi.href}}">{{mi.display}}</a>
+           
+        </li>
+    </ul>
+</nav>
+

@@ -1,0 +1,93 @@
+<app-menu></app-menu>
+<div>
+  <span class="component-title">[{{ title }}]</span>
+  <p *ngIf="!request">Loading...</p>
+  <div *ngIf="request">
+    <main class="single">
+
+      <table class="table table-sm table-striped  ">
+        <tr>
+          <td>Id:</td>
+          <td>
+            <input [(ngModel)]="request.id" class="rounded" type="text" disabled />
+          </td>
+        </tr>
+        <tr>
+          <td>Name:</td>
+          <td>
+            <input [(ngModel)]="request.user.username" class="rounded" type="text" disabled />
+          </td>
+        </tr>
+        <tr>
+          <td>Description:</td>
+          <td>
+            <input [(ngModel)]="request.description" class="rounded" type="text" disabled />
+          </td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td>
+            <input [(ngModel)]="request.status" class="rounded" type="text" disabled />
+          </td>
+        </tr>
+        <tr>
+          <td>Total:</td>
+          <td>
+            <input [(ngModel)]="request.total" class="rounded" type="text" disabled />
+          </td>
+        </tr>
+
+
+      </table>
+
+
+      <table class=" table table-sm table-striped table-border table-condensed">
+        <tr>
+          <td>Line Items:
+            <a routerLink="/lineitem/create/{{request.id}}">
+              <img width="20" height="20" src="assets/add-icon.png" title="Add New" /></a>
+          </td>
+        </tr>
+        <tr>
+          <th>ReqId:</th>
+          <th>LIId:</th>
+          <th>ProductName:</th>
+          <th>Price:</th>
+          <th>Qty:</th>
+          <th>LineTotal:</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let l of lineItems">
+          <td>{{ l.request.id}}</td>
+          <td>{{ l.id}}</td>
+          <td>{{ l.product.name}}</td>
+          <td>{{ l.product.price}}</td>
+          <td>{{ l.quantity}}</td>
+          <td> {{ l.product.price * l.quantity }}</td>
+
+          <span><button (click)="reviewRequest()" class="btn btn-sm btn-primary">Submit</button></span>
+          
+          <td> <a routerLink="/lineitem/edit/{{l.id}}">
+            <img
+              width="20"
+              height="20"
+              src="assets/pencil-icon.png"
+              title="lineitem edit"
+            />
+          </a>
+          <button (click)="delete(l.id)" style="border: none">
+            <img
+              width="20"
+              height="20"
+              src="assets/delete.jpg"
+              title="Delete Line Item"
+            />
+          </button>
+          </td>
+        </tr>
+      </table>
+    </main>
+
+    <p *ngIf="message">{{ message }}</p>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<app-menu></app-menu>
+<div>
+  <span class="component-title">[{{ title }}]</span>
+  <p *ngIf="!request">Loading...</p>
+  <div *ngIf="request">
+    <main class="single">
+        <h1>{{ title}}</h1>
+        <table *ngIf ="request" class="table table-sm table-striped table-bordered table-condensed">
+            <thead>
+                <th>Id</th>
+                <th>User</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Total</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{request.id}}</td>
+                    <td>{{ request.user.username}}</td>
+                    <td>{{ request.description}}</td>
+                    <td>{{ request.status}}</td>
+                    <td>{{ request.total}}</td>
+                    
+            </tr>
+           
+            <span><button (click)="approve()" class="btn btn-sm btn-primary">Approve</button></span>
+            <input [(ngModel)] = "request.reasonForRejection" class="rounded" type="text" />
+           
+            <span><button (click)="reject()" class="btn btn-sm btn-primary">Reject</button> </span>
+            
+            </tbody>
+            </table>
+    </main>
+
