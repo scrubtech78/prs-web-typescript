@@ -15,10 +15,10 @@ const URL: string = 'http://localhost:8080/api/vendors';
 }
 
 getVendorById(id: number):Observable<  Vendor >{
-  return this.http.get(URL +'/') as Observable<Vendor>;}
+  return this.http.get(URL +'/'+id) as Observable<Vendor>;}
 
-createVendor(actor: Vendor):Observable<Vendor>{
-     return this.http.post(URL,Vendor) as Observable<Vendor>
+createVendor(vendor: Vendor):Observable<Vendor>{
+     return this.http.post(URL,vendor) as Observable<Vendor>
  }
 
  updateVendor(vendor:Vendor):Observable<Vendor> {

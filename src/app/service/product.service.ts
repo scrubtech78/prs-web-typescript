@@ -15,10 +15,10 @@ const URL: string = 'http://localhost:8080/api/products';
 }
 
 getProductById(id: number):Observable<  Product >{
-  return this.http.get(URL +'/') as Observable<Product>;}
+  return this.http.get(URL +'/'+id) as Observable<Product>;}
 
-createProduct(product: Product):Observable<Product>{
-     return this.http.post(URL,Product) as Observable<Product>
+addProduct(product: Product):Observable<Product>{
+     return this.http.post(URL,product) as Observable<Product>
  }
 
  updateProduct(product:Product):Observable<Product> {

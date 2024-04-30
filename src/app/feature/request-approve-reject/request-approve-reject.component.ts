@@ -67,9 +67,27 @@ export class RequestApproveRejectComponent implements OnInit {
       },
       complete: ()=>{}
     });
-
+  }
+    save(): void{
+      //check for existance before save?
+      console.log("save user:", this.request);
+      this.requestSvc.updateRequest(this.request).subscribe({
+       next: (resp) =>{
+        this.request = resp;
+        this.route.navigateByUrl("/request/list");
+       },
+       error:(err)=>{
+        console.log("Error creating request:", err);
+        this.message = "Error creating request"
+       },
+       complete:() =>{}
+         
+       
+      });
+    }
+    
   }
 
-  }
+  
 
 

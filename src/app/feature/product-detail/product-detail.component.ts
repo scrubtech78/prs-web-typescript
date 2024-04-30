@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Product } from 'src/app/model/product';
+import { Vendor } from 'src/app/model/vendor';
 import { ProductService } from 'src/app/service/product.service';
+import { VendorService } from 'src/app/service/vendor.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,11 +14,12 @@ import { ProductService } from 'src/app/service/product.service';
 export class ProductDetailComponent implements OnInit {
   title: string ="Product Detail";
   product: Product = new Product();
-  productId: number =0;
+  productId: number=0;
+  vendor: Vendor[]=[];
   message?: string = undefined;
 
   constructor(private productSvc: ProductService, private router: Router,
-              private route:ActivatedRoute) { }
+              private route:ActivatedRoute, private vendorSvc: VendorService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe({
@@ -27,7 +30,7 @@ export class ProductDetailComponent implements OnInit {
           this.product = params;
         },
         error:(err) =>{
-          console.log("Error getting user by id:", err);
+          console.log("Error getting product by id:", err);
         },
         complete: () => {},
       });
@@ -37,6 +40,15 @@ export class ProductDetailComponent implements OnInit {
     },
     complete: ()=>{},
 
+});
+this.vendorSvc.getAllVendor().subscribe({
+  next: (resp) => {
+    this.vendor = resp;
+  },
+  error: (err) => {
+    console.log('Vendor details - error getting details.');
+  },
+  complete: () => {},
 });
   }
   delete() {
@@ -60,6 +72,10 @@ export class ProductDetailComponent implements OnInit {
     });
 
 }
+compVendor(a: Vendor, b: Vendor): boolean {
+  return a && b && a.id === b.id;
+}
+
 }
 
 

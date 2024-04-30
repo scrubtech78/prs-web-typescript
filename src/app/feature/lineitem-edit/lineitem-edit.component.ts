@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Lineitem } from 'src/app/model/lineitem';
 import { LineItemService } from 'src/app/service/lineitem.service';
+import { Product } from 'src/app/model/product';
+import { ProductService } from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-lineitem-edit',
@@ -11,6 +13,7 @@ import { LineItemService } from 'src/app/service/lineitem.service';
 export class LineitemEditComponent implements OnInit {
   title: string= "Lineitem-Edit";
   lineitem: Lineitem = new Lineitem();
+  product: Product = new Product();
  
   message?: string = undefined;
 

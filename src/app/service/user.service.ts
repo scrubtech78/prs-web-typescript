@@ -17,7 +17,7 @@ const URL: string = 'http://localhost:8080/api/users';
 }
 
 getUserById(id: number):Observable<User>{
-  return this.http.get(URL +'/') as Observable<User>;}
+  return this.http.get(URL +'/'+ id) as Observable<User>;}
 
 createUser(user: User):Observable<User>{
      return this.http.post(URL,user) as Observable<User>

@@ -5,7 +5,7 @@
   <div *ngIf="request">
     <main class="single">
 
-      <table class="table table-sm table-striped  ">
+      <table class="table-sm table-striped table-bordered table-condensed  ">
         <tr>
           <td>Id:</td>
           <td>
@@ -41,7 +41,7 @@
       </table>
 
 
-      <table class=" table table-sm table-striped table-border table-condensed">
+      <table class="  table-sm table-striped table-bordered table-condensed">
         <tr>
           <td>Line Items:
             <a routerLink="/lineitem/create/{{request.id}}">
@@ -64,9 +64,7 @@
           <td>{{ l.product.price}}</td>
           <td>{{ l.quantity}}</td>
           <td> {{ l.product.price * l.quantity }}</td>
-
-          <span><button (click)="reviewRequest()" class="btn btn-sm btn-primary">Submit</button></span>
-          
+         
           <td> <a routerLink="/lineitem/edit/{{l.id}}">
             <img
               width="20"
@@ -84,6 +82,9 @@
             />
           </button>
           </td>
+        </tr>
+        <tr>
+          <button (click)="reviewRequest()" class="btn btn-sm btn-primary">Submit</button>
         </tr>
       </table>
     </main>

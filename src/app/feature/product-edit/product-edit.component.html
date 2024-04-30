@@ -12,9 +12,13 @@
             </td>
           </tr>
           <tr>
-            <td>VendorId:</td>
+            <td>Vendor:</td>
             <td>
-              <input [(ngModel)]="product.vendorId" class="rounded" type="text" disabled/>
+              <select [(ngModel)]="product.vendor" class="rounded" [compareWith]="compVendor">
+                <option *ngFor="let v of vendor" [ngValue]="v">
+                  {{ v.name }}
+                </option>
+              </select>
             </td>
           </tr>
           <tr>
@@ -26,7 +30,7 @@
           <tr>
             <td>Name:</td>
             <td>
-              <input [(ngModel)]="product.name" class="rounded" type="number" />
+              <input [(ngModel)]="product.name" class="rounded" type="text" />
             </td>
           </tr>
           <tr>

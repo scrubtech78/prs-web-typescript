@@ -1,4 +1,4 @@
-import { User } from "c:/repos/ng-repos/prs-web/src/app/model/user";
+import { User } from "./user";
 
 export class Request{
     id: number;

@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div>
     <span class="component-title">[{{ title }}]</span>
     <p *ngIf="!product">Loading...</p>
@@ -11,15 +12,15 @@
             </td>
           </tr>
           <tr>
-            <td>VendorId:</td>
+            <td>Vendor ID :</td>
             <td>
-              <input [(ngModel)]="product.vendorId" class="rounded" type="text" />
+              <input [(ngModel)]="product.vendor.id" class="rounded" type="text" />
             </td>
           </tr>
           <tr>
             <td>Part Number:</td>
             <td>
-              <input [(ngModel)]="product.partNumber" class="rounded" type="number" />
+              <input [(ngModel)]="product.partNumber" class="rounded" type="text" />
             </td>
           </tr>
           <tr>
